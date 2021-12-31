@@ -44,7 +44,7 @@ void testingPalindrome(void) {
 int main()
 {
     testingPalindrome();
-    //beljdkjdpi
+    
 
 }
 
