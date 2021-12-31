@@ -45,7 +45,7 @@ int main()
 {
     testingPalindrome();
     
-
+    //dad is crazy
 }
 
 
