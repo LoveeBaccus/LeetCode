@@ -56,7 +56,7 @@ string longestCommonPrefix(vector<string>& strs) {
     while (flag) {
         prefixLength++;
         commonPrefix = strs[0].substr(0, prefixLength); //estabolish the prefix to be checked
-        // 
+         
         for (int i = 0; i < strs.size(); i++) { // check each word in the strs vector
             if (strs[i] == "") return "";
             // check to see if end of string
@@ -77,9 +77,17 @@ string longestCommonPrefix(vector<string>& strs) {
 void testingLongestCommonPrefix(void) {
     vector<string> test1 = {"flower", "flow", "flight"};
     vector<string> test2 = {"dog", "racecar", "car"};
+    vector<string> test3 = { "a", "a" };
+    vector<string> test4 = { "a", "b" };
+    vector<string> test5 = { "" ,""};
 
     std::cout << "Input: [\"flower\", \"flow\", \"flight\"] \t Expected Output: \"fl\" \t Actual Output: \""<< longestCommonPrefix(test1)<< "\" \n";
     std::cout << "Input: {\"dog\", \"racecar\", \"car\"} \t Expected Output: \"\" \t Actual Output: \"" << longestCommonPrefix(test2) << "\"\n";
+    std::cout << "Input: {\"dog\", \"racecar\", \"car\"} \t Expected Output: \"\" \t Actual Output: \"" << longestCommonPrefix(test2) << "\"\n";
+    std::cout << "Input: {\"a\", \"a\"} \t Expected Output: \"a\" \t Actual Output: \"" << longestCommonPrefix(test3) << "\"\n";
+    std::cout << "Input: {\"a\", \"b\"} \t Expected Output: \"\" \t Actual Output: \"" << longestCommonPrefix(test4) << "\"\n";
+    std::cout << "Input: {\"\"\"\"} \t Expected Output: \"\" \t Actual Output: \"" << longestCommonPrefix(test5) << "\"\n";
+
 
 }
 
