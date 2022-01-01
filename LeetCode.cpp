@@ -78,8 +78,8 @@ void testingLongestCommonPrefix(void) {
     vector<string> test1 = {"flower", "flow", "flight"};
     vector<string> test2 = {"dog", "racecar", "car"};
 
-    std::cout << "Input: [\"flower\", \"flow\", \"flight\"] \t Expected Output: \"fl\" \t Actual Output: "<< longestCommonPrefix(test1)<< "\n";
-    std::cout << "Input: {\"dog\", \"racecar\", \"car\"} \t Expected Output: \"\" \t Actual Output: " << longestCommonPrefix(test2) << "\n";
+    std::cout << "Input: [\"flower\", \"flow\", \"flight\"] \t Expected Output: \"fl\" \t Actual Output: \""<< longestCommonPrefix(test1)<< "\" \n";
+    std::cout << "Input: {\"dog\", \"racecar\", \"car\"} \t Expected Output: \"\" \t Actual Output: \"" << longestCommonPrefix(test2) << "\"\n";
 
 }
 
