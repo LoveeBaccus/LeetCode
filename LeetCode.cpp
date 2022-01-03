@@ -91,11 +91,80 @@ void testingLongestCommonPrefix(void) {
 
 }
 
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+
+ListNode* newListNode(int val) {
+    struct ListNode* temp = new ListNode;
+    temp->val = val;
+    temp->next = nullptr;
+    return temp;
+}
+
+void printList(ListNode* temp) {
+    while (temp != nullptr) {
+        cout << temp->val << ", ";
+        temp = temp->next;
+    }
+    cout << "\n";
+}
+
+ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+
+    // if list1 is null, then we just wanna return the other one
+    if (!list1) {
+        return list2;
+    }
+    // same thing for list1
+    if (!list2) {
+        return list1;
+    }
+
+    // process the smaller node first, and then call the recursive part with the larger one and the next val
+    if (list1->val < list2->val) {
+        list1->next = mergeTwoLists(list1->next, list2);
+        return list1;
+    }
+    else {
+        // same thing but flipped
+        list2->next = mergeTwoLists(list1, list2->next);
+        return list2;
+    }
+}
+
+void testingMergeTwoLists(void) {
+    ListNode* h1 = newListNode(1);
+    h1->next = newListNode(3);
+    h1->next->next = newListNode(5);
+
+    ListNode* h2 = newListNode(0);
+    h2->next = newListNode(2);
+    h2->next->next = newListNode(4);
+
+    cout << "Input List1: ";
+    printList(h1);
+    cout << "Input List2: ";
+    printList(h2);
+
+    cout << "Expected Merged Output: 0, 1, 2, 3, 4, 5,\n";
+
+    ListNode* h3 = mergeTwoLists(h1, h2);
+    cout << "Actual Merged Output: \t";
+    printList(h3);
+
+}
+
 int main()
 {
     //testingPalindrome();
-    testingLongestCommonPrefix();
-    //dad is crazy
+    //testingLongestCommonPrefix();
+    testingMergeTwoLists();
+    
 }
 
 
