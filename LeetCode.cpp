@@ -107,11 +107,12 @@ ListNode* newListNode(int val) {
 }
 
 void printList(ListNode* temp) {
-    while (temp != nullptr) {
+    cout << "[ ";
+    while (temp->next != nullptr) {
         cout << temp->val << ", ";
         temp = temp->next;
     }
-    cout << "\n";
+    cout << temp->val <<" ]\n";
 }
 
 ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -138,6 +139,7 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
 }
 
 void testingMergeTwoLists(void) {
+#pragma region TestCase1
     ListNode* h1 = newListNode(1);
     h1->next = newListNode(3);
     h1->next->next = newListNode(5);
@@ -151,11 +153,33 @@ void testingMergeTwoLists(void) {
     cout << "Input List2: ";
     printList(h2);
 
-    cout << "Expected Merged Output: 0, 1, 2, 3, 4, 5,\n";
+    cout << "Expected Merged Output: [ 0, 1, 2, 3, 4, 5 ]\n";
 
     ListNode* h3 = mergeTwoLists(h1, h2);
     cout << "Actual Merged Output: \t";
     printList(h3);
+#pragma endregion
+
+#pragma region TestCase2
+    ListNode* h4 = newListNode(4);
+    h4->next = newListNode(5);
+    h4->next->next = newListNode(10);
+
+    ListNode* h5 = newListNode(3);
+    h5->next = newListNode(12);
+    
+    cout << "Input List1: ";
+    printList(h4);
+    cout << "Input List2: ";
+    printList(h5);
+
+    cout << "Expected Merged Output: [ 3, 4, 5, 10, 12 ]\n";
+    
+    ListNode* h6 = mergeTwoLists(h4, h5);
+    cout << "Actual Merged Output: \t";
+    printList(h6);
+#pragma endregion
+
 
 }
 
