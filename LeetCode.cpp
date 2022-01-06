@@ -180,6 +180,80 @@ void testingMergeTwoLists(void) {
     printList(h6);
 #pragma endregion
 
+    // I should write the codde to verify both sublists are sorted prior to merging them
+    // I could also add in negative numbers to make sure that works
+    // other corner cases could consider duplicate values?
+}
+
+int romanToInt(string s) {
+    int total = 0;
+    vector<int> input = {};
+
+    //convert the given string to ints
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'I') {
+            input.push_back(1);
+        }
+        else if (s[i] == 'V') {
+            input.push_back(5);
+        }
+        else if (s[i] == 'X') {
+            input.push_back(10);
+        }
+        else if (s[i] == 'L') {
+            input.push_back(50);
+        }
+        else if (s[i] == 'C') {
+            input.push_back(100);
+        }
+        else if (s[i] == 'D') {
+            input.push_back(500);
+        }
+        else if (s[i] == 'M') {
+            input.push_back(1000);
+        }
+    }
+    /*
+    std::cout << "Input: ";
+    for (int j = 0; j < input.size(); j++) {
+        std::cout << input[j];
+    }
+    std::cout << "\n";
+    */
+    int cur = 0;
+    int next = 1;
+    while (next < input.size()) {
+
+        if (input[cur] >= input[next]) { // as is the case with III or 
+            total += input[cur];
+            //std::cout << "Total: " << total << "\n";
+            // just increment one because we didn't add next to total yet
+            next++;
+            cur++;
+
+        }
+        else { //as is the case with IV (4)
+           // then we want to subtract left from right --> like 5 - 1 = 4 when IV
+           // then add that number to the total
+            total += input[next] - input[cur];
+            //std::cout << "Total: " << total << "\n";
+            // we want to jump two because those have both been processed 
+            next += 2;
+            cur += 2;
+
+        }
+    }
+    if (cur == input.size() - 1) {
+        total += input[cur];
+    }
+    return total;
+}
+
+void testingRomanToInt(void) {
+    cout << "Input: III\tExpected Output: 3\tActual Output: " << romanToInt("III") << "\n";
+    cout << "Input: LVIII\tExpected Output: 58\tActual Output: " << romanToInt("LVIII") << "\n";
+    cout << "Input: MCMXCIV\tExpected Output: 1994\tActual Output: " << romanToInt("MCMXCIV") << "\n";
+
 
 }
 
@@ -187,7 +261,8 @@ int main()
 {
     //testingPalindrome();
     //testingLongestCommonPrefix();
-    testingMergeTwoLists();
+    //testingMergeTwoLists();
+    testingRomanToInt();
     
 }
 
