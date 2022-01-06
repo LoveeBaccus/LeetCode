@@ -189,7 +189,7 @@ int romanToInt(string s) {
     int total = 0;
     vector<int> input = {};
 
-    //convert the given string to ints
+    //convert the given string to ints stored in a vector
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'I') {
             input.push_back(1);
@@ -253,7 +253,15 @@ void testingRomanToInt(void) {
     cout << "Input: III\tExpected Output: 3\tActual Output: " << romanToInt("III") << "\n";
     cout << "Input: LVIII\tExpected Output: 58\tActual Output: " << romanToInt("LVIII") << "\n";
     cout << "Input: MCMXCIV\tExpected Output: 1994\tActual Output: " << romanToInt("MCMXCIV") << "\n";
+    
+    cout << "Input: MCMLXVIII\tExpected Output: 1968\tActual Output: " << romanToInt("MCMLXVIII") << "\n";
+    cout << "Input: ***\tExpected Output: 99999\tActual Output: " << romanToInt("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMCMXCIX") << "\n";
 
+    cout << "Input: ABC\tExpected Output: ERROR\tActual Output: " << romanToInt("ABC") << "\n";
+    cout << "Input: 123\tExpected Output: ERROR\tActual Output: " << romanToInt("123") << "\n";
+    cout << "Input: iii\tExpected Output: ERROR\tActual Output: " << romanToInt("iii") << "\n";
+    cout << "Input: \"\"\tExpected Output: ERROR\tActual Output: " << romanToInt("") << "\n";
+    // cout << "Input: NULL\tExpected Output: ERROR\tActual Output: " << romanToInt(NULL) << "\n"; crashed 
 
 }
 
