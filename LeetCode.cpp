@@ -213,20 +213,13 @@ int romanToInt(string s) {
             input.push_back(1000);
         }
     }
-    /*
-    std::cout << "Input: ";
-    for (int j = 0; j < input.size(); j++) {
-        std::cout << input[j];
-    }
-    std::cout << "\n";
-    */
+    
     int cur = 0;
     int next = 1;
     while (next < input.size()) {
 
         if (input[cur] >= input[next]) { // as is the case with III or 
             total += input[cur];
-            //std::cout << "Total: " << total << "\n";
             // just increment one because we didn't add next to total yet
             next++;
             cur++;
@@ -236,7 +229,6 @@ int romanToInt(string s) {
            // then we want to subtract left from right --> like 5 - 1 = 4 when IV
            // then add that number to the total
             total += input[next] - input[cur];
-            //std::cout << "Total: " << total << "\n";
             // we want to jump two because those have both been processed 
             next += 2;
             cur += 2;
