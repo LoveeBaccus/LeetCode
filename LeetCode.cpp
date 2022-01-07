@@ -11,6 +11,7 @@ For example, 121 is a palindrome while 123 is not.
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stack>
 using namespace std;
 
 bool isPalindrome(int x) {
@@ -257,13 +258,73 @@ void testingRomanToInt(void) {
 
 }
 
+bool isValidParenthesis(string s) {
+    // if its an empty string, we can't do anything
+    if (s.length() == 0) {
+        cout << "Empty input string\n";
+        return false;
+    }
+
+    stack<char> parenStack;
+    // for each character in the input string
+    for (int i = 0; i < s.length(); i++) {
+        // check if it is an open paren
+        if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+            parenStack.push(s[i]);
+        }
+        // or a close parent
+        else if (s[i] == ')' || s[i] == ']' || s[i] == '}') {
+            // if its a close paren, but there is no buddy on the stack, then we know it was mismatched
+            if (parenStack.empty()) {
+                return false;
+            }
+
+            // for each style, check for its pair
+            if (s[i] == ')' && parenStack.top() == '(') {
+                parenStack.pop();
+            }
+            else if (s[i] == ']' && parenStack.top() == '[') {
+                parenStack.pop();
+            }
+            else if (s[i] == '}' && parenStack.top() == '{') {
+                parenStack.pop();
+            }
+            // if it didn't have a pair, we want to push it so that the stack won't be empty at the end
+            // we could just return false here
+            else {
+                parenStack.push(s[i]);
+            }
+        }
+        else {
+            std::cout << "non paren character\n";
+            parenStack.push(s[i]);
+        }
+    }
+    if (parenStack.empty()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+void testingIsValidParenthesis(void) {
+    std::cout << "input: ()\texpected output: true\tactual output: " << (isValidParenthesis("()") ? "true" : "false") << "\n";
+    std::cout << "input: ()[]{}\texpected output: true\tactual output: " << (isValidParenthesis("()[]{}") ? "true" : "false") << "\n";
+    std::cout << "input: )(][}{\texpected output: false \tactual output: " << (isValidParenthesis(")(][}{") ? "true" : "false") << "\n";
+    std::cout << "input: (]\texpected output: false\tactual output: " << (isValidParenthesis("(]") ? "true" : "false") << "\n";
+    std::cout << "input: \"\"\texpected output: false\tactual output: " << (isValidParenthesis("") ? "true" : "false") << "\n";
+    std::cout << "input: ABC\texpected output: false\tactual output: " << (isValidParenthesis("ABC") ? "true" : "false") << "\n";
+
+}
+
 int main()
 {
     //testingPalindrome();
     //testingLongestCommonPrefix();
     //testingMergeTwoLists();
-    testingRomanToInt();
-    
+    //testingRomanToInt();
+    testingIsValidParenthesis();
 }
 
 
