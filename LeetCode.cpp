@@ -292,7 +292,9 @@ bool isValidParenthesis(string s) {
             // if it didn't have a pair, we want to push it so that the stack won't be empty at the end
             // we could just return false here
             else {
+                return false;
                 parenStack.push(s[i]);
+                
             }
         }
         else {
@@ -314,6 +316,9 @@ void testingIsValidParenthesis(void) {
     std::cout << "input: )(][}{\texpected output: false \tactual output: " << (isValidParenthesis(")(][}{") ? "true" : "false") << "\n";
     std::cout << "input: (]\texpected output: false\tactual output: " << (isValidParenthesis("(]") ? "true" : "false") << "\n";
     std::cout << "input: \"\"\texpected output: false\tactual output: " << (isValidParenthesis("") ? "true" : "false") << "\n";
+    std::cout << "input: ([])\texpected output: true\tactual output: " << (isValidParenthesis("([])") ? "true" : "false") << "\n";
+    std::cout << "input: (())\texpected output: true\tactual output: " << (isValidParenthesis("(())") ? "true" : "false") << "\n";
+
     std::cout << "input: ABC\texpected output: false\tactual output: " << (isValidParenthesis("ABC") ? "true" : "false") << "\n";
 
 }
