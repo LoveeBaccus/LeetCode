@@ -323,6 +323,13 @@ void testingIsValidParenthesis(void) {
 
 }
 
+// merge two strings to create password
+// clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
+// water levels trailing difference 
+// parenthesis ticket items
+// find the value that is duplicated the most
+
+
 int main()
 {
     //testingPalindrome();
