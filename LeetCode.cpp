@@ -323,11 +323,72 @@ void testingIsValidParenthesis(void) {
 
 }
 
+vector<int> removeDuplicates(vector<int>& nums) {
+    // since the input array is sorted, its not tooooo tricky
+    // we should verify that it is sorted when I do it on VS
+
+    if (nums.size() == 0) {
+        return {};
+    }
+
+    int ind = 1;
+    for (int i = 1;i < nums.size();i++) {
+
+        if (nums[i] == nums[i - 1]) {
+            continue;
+        }
+        else {
+            nums[ind] = nums[i];
+            ind++;
+        }
+    }
+    nums.erase(nums.begin() + ind, nums.end());
+    // for(int val: nums)
+    //     cout<<val;
+    return nums;
+}
+
+void printVector(vector<int> nums) {
+    if (nums.size() == 0) {
+        cout << "{ }";
+    }
+    else {
+        cout << "{ ";
+        int i = 0;
+        for (; i < nums.size() - 1; i++) {
+            cout << nums[i] << ", ";
+        }
+        cout << nums[i] << " }\n";
+    }
+
+}
+
+void testingRemoveDuplicates(void) {
+    vector <int> input1 = { 1,1,2 };
+    vector<int> actualOutput1 = removeDuplicates(input1);
+
+    cout << "Input: { 1, 1, 2 }\nExpected Output:\t{ 1, 2 }\nActual Output:\t\t"; 
+    printVector(actualOutput1);
+
+    vector <int> input2 = { 0,0,1,1,1,2,2,3,3,4 };
+    vector<int> actualOutput2 = removeDuplicates(input2);
+
+    cout << "Input: { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }\nExpected Output:\t{ 0, 1, 2, 3, 4 }\nActual Output:\t\t";
+    printVector(actualOutput2);
+
+    vector <int> input3 = {};
+    vector<int> actualOutput3 = removeDuplicates(input3);
+
+    cout << "Input: { }\nExpected Output:\t{ }\nActual Output:\t\t";
+    printVector(actualOutput3);
+
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
-// parenthesis ticket items
-// find the value that is duplicated the most
+// parenthesis ticket items -- same as the above, so probably not worth repeating
+// count occurances of each value in the array
 
 
 int main()
@@ -336,7 +397,8 @@ int main()
     //testingLongestCommonPrefix();
     //testingMergeTwoLists();
     //testingRomanToInt();
-    testingIsValidParenthesis();
+    //testingIsValidParenthesis();
+    testingRemoveDuplicates();
 }
 
 
