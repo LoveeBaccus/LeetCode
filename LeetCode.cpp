@@ -379,6 +379,79 @@ void testingRemoveDuplicates(void) {
 
 }
 
+int removeElement(vector<int>& nums, int val) {
+
+    int k = 0;
+
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] != val) {
+            // if it is a good value, we want to keep it in the final and therefore not overwrite it, so we want to increment k
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+}
+
+void printKelements(int k, vector<int> nums) {
+    if (k == 0) {
+        cout << "{ }";
+    }
+    else {
+        cout << "{ ";
+        int i = 0;
+        for (; i < k - 1; i++) {
+            cout << nums[i] << ", ";
+        }
+        cout << nums[i] << " }\n";
+    }
+}
+
+void testingRemoveElement(void) {
+    vector<int> test = { 1,1,2 };
+    int target = 1;
+    int k;
+    cout << "Input Vector: { 1, 1, 2 } \nInput Target: 1\n";
+    cout << "Expected Output Vector:\t{ 2 }\n";
+
+    k = removeElement(test, target);
+    cout << "Actual Output Vector: \t";
+    printKelements(k, test);
+
+    cout << "\n";
+
+    test = { 0,1,2,2,3,0,4,2 };
+    target = 2;
+    cout << "Input Vector: { 0, 1, 2, 2, 3, 0, 4, 2 } \nInput Target: 2\n";
+    cout << "Expected Output Vector:\t{ 0, 1, 3, 0, 4 }\n";
+
+    k = removeElement(test, target);
+    cout << "Actual Output Vector: \t";
+    printKelements(k, test);
+
+    cout << "\n";
+
+    test = { 0,1,2,3,4,5,6 };
+    target = -1;
+    cout << "Input Vector: { 0, 1, 2, 3, 4, 5, 6 } \nInput Target: -1\n";
+    cout << "Expected Output Vector:\t{ 0, 1, 2, 3, 4, 5, 6 }\n";
+
+    k = removeElement(test, target);
+    cout << "Actual Output Vector: \t";
+    printKelements(k, test);
+
+    cout << "\n";
+
+    test = { 0, 0, 0, 0, 0 };
+    target = 0;
+    cout << "Input Vector: { 0, 0, 0, 0, 0 } \nInput Target: 0\n";
+    cout << "Expected Output Vector:\t{ }\n";
+
+    k = removeElement(test, target);
+    cout << "Actual Output Vector: \t";
+    printKelements(k, test);
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
@@ -393,7 +466,8 @@ int main()
     //testingMergeTwoLists();
     //testingRomanToInt();
     //testingIsValidParenthesis();
-    testingRemoveDuplicates();
+    //testingRemoveDuplicates();
+    testingRemoveElement();
 }
 
 
