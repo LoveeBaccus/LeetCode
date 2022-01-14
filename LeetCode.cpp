@@ -452,6 +452,36 @@ void testingRemoveElement(void) {
     printKelements(k, test);
 }
 
+int needleHaystack(string haystack, string needle) {
+    if (needle == "") {
+        return 0;
+    }
+    int found = haystack.find(needle);
+    if (found == string::npos) {
+        return -1;
+    }
+
+    return found;
+}
+
+void testingNeedleHaystack(void) {
+    // haystack = hello, needle = ll, output = 2
+    cout << "Input: haystack: \"hello\" needle: \"ll\"\n";
+    cout << "Expected Output: 2\n";
+    cout << "Actual Output: \t" << needleHaystack("hello", "ll") << "\n\n";
+
+    // haystack = aaaaaaaaa, needle = bba, output = -1
+    cout << "Input: haystack: \"aaaaaaaaa\" needle: \"bba\"\n";
+    cout << "Expected Output: -1\n";
+    cout << "Actual Output: \t" << needleHaystack("aaaaaaaaa", "bba") << "\n\n";
+
+    // haystack = "", needle = "", output = 0
+    cout << "Input: haystack: \"\" needle: \"\"\n";
+    cout << "Expected Output: 0\n";
+    cout << "Actual Output: \t" << needleHaystack("", "") << "\n\n";
+
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
@@ -467,7 +497,8 @@ int main()
     //testingRomanToInt();
     //testingIsValidParenthesis();
     //testingRemoveDuplicates();
-    testingRemoveElement();
+    //testingRemoveElement();
+    testingNeedleHaystack();
 }
 
 
