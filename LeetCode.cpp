@@ -487,7 +487,7 @@ void testingNeedleHaystack(void) {
 // water levels trailing difference 
 // parenthesis ticket items -- same as the above, so probably not worth repeating
 // count occurances of each value in the array
-
+// me adding random comments so I can commit code for today without doing anything :)
 
 int main()
 {
