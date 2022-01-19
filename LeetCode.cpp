@@ -508,6 +508,33 @@ void testingSearchInsert(void) {
     cout << "Actual Output: " << searchInsert(nums, 5) << "\n";
 }
 
+int maxSubArray(vector<int>& nums) {
+    int max = nums[0];
+
+    for (int i = 0; i < nums.size(); i++) {
+        int temp = 0;
+
+        for (int j = i; j < nums.size(); j++) {
+            temp += nums[j];
+            if (temp > max) {
+                max = temp;
+            }
+            if (temp < 0) {
+                break;
+            }
+        }
+    }
+    return max;
+}
+
+void testingMaxSubArray(void) {
+    cout << "TIMES OUT ON SOME INPUTS\n";
+    cout << "Input: nums = [-2,1,-3,4,-1,2,1,-5,4] \n";
+    cout << "Expected Output: 6\n";
+    vector<int> nums = { -2,1,-3,4,-1,2,1,-5,4 };
+    cout << "Actual Output: " << maxSubArray(nums) << "\n";
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
@@ -526,7 +553,8 @@ int main()
     //testingRemoveElement();
 
     //testingNeedleHaystack();
-    testingSearchInsert();
+    //testingSearchInsert();
+    testingMaxSubArray();
 }
 
 
