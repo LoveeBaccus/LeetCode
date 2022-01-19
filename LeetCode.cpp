@@ -482,17 +482,38 @@ void testingNeedleHaystack(void) {
 
 }
 
+int searchInsert(vector<int>& nums, int target) {
+    int left = 0, right = nums.size();
+    int mid = 0;
+
+    while (left < right) {
+        mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }
+        else if (nums[mid] > target) {
+            right = mid;
+        }
+        else if (nums[mid] < target) {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+
+void testingSearchInsert(void) {
+    cout << "Input: nums = [ 1, 3, 5, 6 ], target = 5\n";
+    cout << "Expected Output: 2\n";
+    vector<int> nums = { 1, 3, 5, 6 };
+    cout << "Actual Output: " << searchInsert(nums, 5) << "\n";
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
 // parenthesis ticket items -- same as the above, so probably not worth repeating
 // count occurances of each value in the array
-// 
-// 
-// me adding random comments so I can commit code for today without doing anything :)
-// rabcos'bd
-// fpihewfpihw
-// fwbossfou
+
 
 int main()
 {
@@ -503,7 +524,9 @@ int main()
     //testingIsValidParenthesis();
     //testingRemoveDuplicates();
     //testingRemoveElement();
-    testingNeedleHaystack();
+
+    //testingNeedleHaystack();
+    testingSearchInsert();
 }
 
 
