@@ -509,7 +509,8 @@ void testingSearchInsert(void) {
 }
 
 int maxSubArray(vector<int>& nums) {
-    int max = nums[0];
+    /*
+     int max = nums[0];
 
     for (int i = 0; i < nums.size(); i++) {
         int temp = 0;
@@ -525,10 +526,23 @@ int maxSubArray(vector<int>& nums) {
         }
     }
     return max;
+    */
+
+    int maxSum = nums[0], currSum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        currSum += nums[i];
+
+        maxSum = max(maxSum, currSum);
+
+        if (currSum < 0) {
+            currSum = 0;
+        }
+    }
+    return maxSum;
 }
 
 void testingMaxSubArray(void) {
-    cout << "TIMES OUT ON SOME INPUTS\n";
+    //cout << "TIMES OUT ON SOME INPUTS\n";
     cout << "Input: nums = [-2,1,-3,4,-1,2,1,-5,4] \n";
     cout << "Expected Output: 6\n";
     vector<int> nums = { -2,1,-3,4,-1,2,1,-5,4 };

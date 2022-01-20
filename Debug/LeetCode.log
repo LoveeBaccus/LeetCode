@@ -6,6 +6,5 @@ C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\Leet
 C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(335,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(353,18): warning C4018: '<': signed/unsigned mismatch
 C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(386,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(514,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(517,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\LeetCode.cpp(532,23): warning C4018: '<': signed/unsigned mismatch
   LeetCode.vcxproj -> C:\Users\loven\OneDrive\Documents\WSU\Application Materials\Interview Demos\LeetCode\Debug\LeetCode.exe
