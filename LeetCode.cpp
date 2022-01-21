@@ -567,6 +567,30 @@ void testingMaxSubArray(void) {
     cout << "Actual Output: " << maxSubArray(nums) << "\n";
 }
 
+int maxSquareSubArrayOfOnes(vector<vector<int>> input) {
+
+    // create a temp array
+    int max = 0;
+    int size = input.size();
+    vector<vector<int>> arr;
+
+    // copy over the top row, and the left column as the base cases
+
+    // as we traverse the temp arr, starting from [1][1], we can check up, left, and diag
+        // if current element == 1
+            // if all three neighbors are 1s, then the element we are currently in completes a square with size 2
+            // if one of the neighbors isn't a 1, then we don't complete a new square
+            // we can use the min function to see if we have 0, 1, or 2... depending on how big the array is
+
+    // we can traverse the new arr and look for the maximum value, because that is the element that completed a square of that size
+
+    return max;
+}
+
+void testingMaxSquareOfOnes(void) {
+    cout << "skeleton code";
+}
+
 // merge two strings to create password
 // clothing featured item -- list of strings, counts how many times each item was bought then finds the best selling
 // water levels trailing difference 
@@ -590,6 +614,8 @@ int main()
     testingSearchInsert();
     cout << "\nTesting Max Sub Array\n";
     testingMaxSubArray();
+    cout << "\nTesting Max Square of Ones\n";
+    testingMaxSquareOfOnes();
 }
 
 
