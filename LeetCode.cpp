@@ -506,6 +506,14 @@ void testingSearchInsert(void) {
     cout << "Expected Output: 2\n";
     vector<int> nums = { 1, 3, 5, 6 };
     cout << "Actual Output: " << searchInsert(nums, 5) << "\n";
+
+    cout << "Input: nums = [ 1, 3, 5, 6 ], target = 2\n";
+    cout << "Expected Output: 1\n";
+    cout << "Actual Output: " << searchInsert(nums, 2) << "\n";
+
+    cout << "Input: nums = [ 1, 3, 5, 6 ], target = 7\n";
+    cout << "Expected Output: 4\n";
+    cout << "Actual Output: " << searchInsert(nums, 7) << "\n";
 }
 
 int maxSubArray(vector<int>& nums) {
@@ -547,6 +555,16 @@ void testingMaxSubArray(void) {
     cout << "Expected Output: 6\n";
     vector<int> nums = { -2,1,-3,4,-1,2,1,-5,4 };
     cout << "Actual Output: " << maxSubArray(nums) << "\n";
+
+    cout << "Input: nums = [1] \n";
+    cout << "Expected Output: 1\n";
+    nums = { 1 };
+    cout << "Actual Output: " << maxSubArray(nums) << "\n";
+
+    cout << "Input: nums = [5,4,-1,7,8] \n";
+    cout << "Expected Output: 23\n";
+    nums = { 5,4,-1,7,8 };
+    cout << "Actual Output: " << maxSubArray(nums) << "\n";
 }
 
 // merge two strings to create password
@@ -566,8 +584,11 @@ int main()
     //testingRemoveDuplicates();
     //testingRemoveElement();
 
-    //testingNeedleHaystack();
-    //testingSearchInsert();
+    cout << "Testing Needle in Haystack\n";
+    testingNeedleHaystack();
+    cout << "\nTeasting Search Insert\n";
+    testingSearchInsert();
+    cout << "\nTesting Max Sub Array\n";
     testingMaxSubArray();
 }
 
