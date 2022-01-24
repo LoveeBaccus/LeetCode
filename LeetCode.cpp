@@ -574,6 +574,8 @@ int maxSquareSubArrayOfOnes(vector<vector<int>> input) {
     int size = input.size();
     vector<vector<int>> arr;
 
+    // assign() -- overwrites an element of the vector
+
     // copy over the top row, and the left column as the base cases
 
     // as we traverse the temp arr, starting from [1][1], we can check up, left, and diag
