@@ -577,15 +577,46 @@ int maxSquareSubArrayOfOnes(vector<vector<int>> input) {
     // assign() -- overwrites an element of the vector
 
     // copy over the top row, and the left column as the base cases
-
+    for (int i = 0; i < size; i++) {
+        arr[0][i] = input[0][i];
+    }
+    for (int i = 0; i < size; i++) {
+        arr[i][0] = input[i][0];
+    }
     // as we traverse the temp arr, starting from [1][1], we can check up, left, and diag
         // if current element == 1
             // if all three neighbors are 1s, then the element we are currently in completes a square with size 2
             // if one of the neighbors isn't a 1, then we don't complete a new square
             // we can use the min function to see if we have 0, 1, or 2... depending on how big the array is
 
-    // we can traverse the new arr and look for the maximum value, because that is the element that completed a square of that size
+    for (int i = 1; i < size; i++) {
+        for (int j = 1; j < size; j++) {
+            if (input[i][j] == 0) {
+                // this isn't going to help us make a square, so we can just copy over the zero
+                arr[i][j] = 0;
+            }
+            else {
+                // we want to see if the neighbors are good, and if they are, then we can mark this as a good one
+                int minN = min(min(arr[i - 1][j - 1], arr[i][j - 1]), arr[i - 1][j]);
+                if ( minN > 0) {
+                    int temp = input[i][j];
+                    arr[i][j] = temp++;
+                }
+                else {
+                    arr[i][j] = input[i][j];
+                }
+            }
+        }
+    }
 
+    // we can traverse the new arr and look for the maximum value, because that is the element that completed a square of that size
+    
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (arr[i][j] > max)
+                max = arr[i][j];
+        }
+    }
     return max;
 }
 
